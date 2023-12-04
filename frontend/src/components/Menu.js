@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+import './Menu.css'
 
 export default function Navbar() {
   return (
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <nav class="navbar navbar-expand-md mb-4" id='navbar'>
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          Navbar
+          Fins n' tails
         </a>
         <button
           class="navbar-toggler"

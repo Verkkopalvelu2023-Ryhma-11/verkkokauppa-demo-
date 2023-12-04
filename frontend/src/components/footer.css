@@ -2,8 +2,10 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: lightblue;
+    background-color: rgb(225, 244, 250);
     color: black;
+    border-radius: 10px;
+    border:solid rgb(176, 217, 230) 2px ;
   }
   h1{
     margin-left: 100px;
