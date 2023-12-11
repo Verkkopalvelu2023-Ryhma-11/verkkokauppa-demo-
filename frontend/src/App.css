@@ -1,3 +1,48 @@
 #page{
     background-color: rgb(240, 231, 219);
+    font-family: Lora, serif; 
+    display: grid;
+    grid: 10px;
+    grid-template-areas: /* gridin asettelu */
+    "header header header header"
+    "article article article article"
+    "article article article article"
+    "footer footer footer footer";
+    margin: 10px;
+    min-height: 100vh; /* "view height" eli nyt sisältö täyttää koko sivun näytön koosta huolimatta  */
+}
+
+header {
+    display: flex;
+    grid-row: 1/2;
+    grid-column: 1/5;
+    position: relative;
+    min-height: 180px;
+    background-color: rgb(240, 231, 219);
+    margin-top: 0px;
+    border: solid rgb(155, 145, 131) 1px; /*tämä näkyvillä vain havainnollistamiseksi, poistetaan lopuksi*/
+} 
+
+article {
+    display: flex;
+    grid-row: 2/4;
+    grid-column: 1/5;
+    min-height: 500px;
+    position: relative;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    grid-row: 4/5;
+    grid-column: 1/5;
+    min-height: 150px;
+    position: relative;
+    background-color: rgba(213, 218, 221, 1);
+}
+
+/*tämä asettelu toimi kun laitoin sen koko stackin ympärille, mutta en saa vain yhtä kuvaa oik yläreunaan*/
+.etusivunkuva {
+    grid-row: 1/4;
+    grid-column: 2/5;
 }
