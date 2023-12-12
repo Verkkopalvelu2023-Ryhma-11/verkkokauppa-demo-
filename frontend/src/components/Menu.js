@@ -2,8 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import './Menu.css'
 
+//header tag lisätty muotoilun vuoksi//
+
 export default function Navbar() {
   return (
+    <header>
     <nav class="navbar navbar-expand-md mb-4" id='navbar'>
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -37,6 +40,7 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-    </nav>  
+    </nav>
+    </header>
     );  
 }

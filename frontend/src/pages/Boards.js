@@ -4,9 +4,11 @@ import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
 import './Boards.css';
 
+//lisäsin article-tagin, gridin muotoilun vuoksi//
 export default function Boards() {
   return (
     <div id='Boards'>
+    <article>
     <h3>Surffilaudat</h3>
 
     <div className="d-flex justify-content-around">
@@ -41,7 +43,7 @@ export default function Boards() {
         </Card.Body>
       </Card>
 </div>
-
+</article>
 </div>
   )
 }
