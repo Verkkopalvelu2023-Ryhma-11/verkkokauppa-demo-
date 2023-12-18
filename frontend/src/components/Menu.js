@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import './Menu.css'
+import './Menu.css';
+import Login from './Login';
 
 //header tag lisätty muotoilun vuoksi//
 
@@ -38,6 +39,7 @@ export default function Navbar() {
               <Link className='nav-link' to="/cart">Shopping cart</Link>
             </li>
           </ul>
+          <Login />
         </div>
       </div>
     </nav>
