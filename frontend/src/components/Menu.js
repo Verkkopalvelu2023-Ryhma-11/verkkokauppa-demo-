@@ -39,7 +39,7 @@ export default function Navbar() {
               <Link className='nav-link' to="/cart">Shopping cart</Link>
             </li>
           </ul>
-          <Login />
+       
         </div>
       </div>
     </nav>
