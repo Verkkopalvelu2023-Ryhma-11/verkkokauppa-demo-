@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './Menu.css';
-import Login from './Login';
 
 //header tag lisätty muotoilun vuoksi//
 
@@ -29,7 +28,7 @@ export default function Navbar() {
             <li class="nav-item">
               <Link className='nav-link' to="/">Home</Link>
             </li>
-            <li class="nav-item">
+<li class="nav-item">
               <Link className='nav-link' to="/Boards">Boards</Link>
             </li>
             <li class="nav-item">

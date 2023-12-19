@@ -1,3 +1,3 @@
-import { signal } from "@preact/signals-react";
+import { Signal } from "signals";
 
-export const cartSignal = signal([]);
+export const cartSignal = new Signal();

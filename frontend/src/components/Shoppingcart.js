@@ -1,33 +1,35 @@
-import { cartSignal } from "./signals";
-
-//nämä oli vaan itseäni varten testimielessä. Miten haetaan tuo products eli fins ja boards?
-const products = [ 
-    {id:1, pname: 'evä'},
-    {id:2, pname: 'evä2'},
-    {id:3, pname: 'evä3'},
-];
-
-
+import React, { useState, useEffect } from 'react';
+import { cartSignal } from './signals';
 
 export default function ShoppingCart(){
+
+    const [cartItems, setCartItems] = useState([]);
+    useEffect(() => {
+        const onCartUpdated = (product) => {
+            setCartItems(prevItems => [...prevItems, product]);
+        };
+        cartSignal.add(onCartUpdated);
+
+        return () => {
+            cartSignal.remove(onCartUpdated);
+        };
+    }, []);
+
+        console.log(cartItems);
+
+
     return(
         <div>
-            <h2>Ostoskori</h2>
-            <CartContents/>
-        </div>
+        <h2>Ostoskori</h2>
+        <h3>Sisältö</h3>
+        <ul>
+            {cartItems.map(p => (
+                <li key={p.id}>
+                    {p.productName} x {p.count || 1} 
+                </li>
+            ))}
+        </ul>
+    </div>
     );
 }
 
-function CartContents(){
-
-    const cartProducts = cartSignal.value;
-
-    return(
-        <div>
-            <h3>Sisältö</h3>
-        <ul>
-            {cartProducts.map( p => <li key={p.id}>{p.pname} x {p.count} </li>)}
-        </ul>
-        </div>
-    )
-}
