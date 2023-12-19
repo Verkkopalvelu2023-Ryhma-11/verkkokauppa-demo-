@@ -38,6 +38,9 @@ export default function Navbar() {
             <li class="nav-item">
               <Link className='nav-link' to="/cart">Shopping cart</Link>
             </li>
+            <li class="nav-item">
+              <Link className='nav-link' to="/admin">Ylläpito</Link>
+            </li>
           </ul>
        
         </div>

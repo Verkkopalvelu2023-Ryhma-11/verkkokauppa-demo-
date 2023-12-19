@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Boards from './pages/Boards';
 import Fins from './pages/Fins';
 import Cart from './pages/Cart';
+import Admin from './pages/Admin';
 import Menu from './components/Menu'
 import Footer from './components/footer';
 function App() {
@@ -15,6 +16,9 @@ function App() {
         <Route path="/Boards" element={<Boards />}></Route>
         <Route path="/Fins" element={<Fins />}></Route>
         <Route path="/Cart" element={<Cart />}></Route>
+        <Route path="/Cart" element={<Cart />}></Route>
+        <Route path="/Admin" element={<Admin />}></Route>
+
 
       </Routes>
       <Footer />
