@@ -62,6 +62,7 @@ export default function Boards() {
         .map(p => <p key={p.id}>{p.price} EUR</p>)}
         </Card.Body>
       </Card>
+      
       <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src="https://scontent-hel3-1.xx.fbcdn.net/v/t1.6435-9/191109284_4073412502697307_1073918815470777708_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7f8c78&_nc_ohc=AuMwxHikbF4AX8lFJp1&_nc_ht=scontent-hel3-1.xx&oh=00_AfBPK4s-ckEUxnrj1KpwCPdjp2ZDewsKDEHNcD98vBprkQ&oe=659BE832" />
         <Card.Body>
