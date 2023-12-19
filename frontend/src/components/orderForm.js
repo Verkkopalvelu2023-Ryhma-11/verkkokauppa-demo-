@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import "./orderForm.css";
+import axios from 'axios';
 
 export default function Order() {
   const [orderData, setOrderData] = useState({
@@ -22,10 +23,26 @@ export default function Order() {
     setOrderData({ ...orderData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     //tähän voitaisiin tehdä tulostaa lomakkeen tiedoista tilausvahvistus
     e.preventDefault();
     console.log(orderData);
+
+    const Endpoint = "http://localhost:3001/customer";
+
+    const formData = {
+      first_name: orderData.f_name,
+      last_name: orderData.l_name,
+    };
+
+    try {
+      const resp = await axios.post(Endpoint, formData);
+      if (resp.status === 201) {
+        console.log("Toimiiii:", resp.data);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   //Tähän luodaan muuttuja joka hakee ostoskorin sisällön

@@ -283,4 +283,17 @@ async function getOrders(username){
         res.status(500).json({ error: err.message });
     }
 }
+
+app.post('/customer', async (req, res) => {
+    const { first_name, last_name } = req.body;
+
+    try {
+        const connection = await mysql.createConnection(conf);
+        await connection.execute('INSERT INTO customer (first_name, last_name) VALUES (?, ?)', [first_name, last_name]);
+        res.status(201).send('Toimii pirun hyvin :)');
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
 //testi! Tuleeko githubiin?
