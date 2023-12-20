@@ -3,8 +3,12 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import Card from 'react-bootstrap/Card';
+import { useCart } from "../pages/Fins";
+
 import "./orderForm.css";
 import axios from 'axios';
+import { Ostoskori } from "../pages/Fins";
 
 export default function Order() {
   const [orderData, setOrderData] = useState({
@@ -18,6 +22,14 @@ export default function Order() {
     cardNumber: "",
     cardHolder: "",
   });
+  const { cartItems } = useCart();
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + Number(item.price), 
+    0
+  );
+
+  const [orderConfirmed, setOrderConfirmed] = useState(false);
+
 
   const handleChange = (e) => {
     setOrderData({ ...orderData, [e.target.name]: e.target.value });
@@ -38,17 +50,39 @@ export default function Order() {
     try {
       const resp = await axios.post(Endpoint, formData);
       if (resp.status === 201) {
-        console.log("Toimiiii:", resp.data);
+        setOrderConfirmed(true);;
       }
     } catch (error) {
       console.log(error.message);
     }
   };
+  if (orderConfirmed) {
+    return (
+      <div>
+        <h2>Kiitos tilauksestasi!</h2>
+        <p>Tilaajan nimi: {orderData.f_name} {orderData.l_name}</p>
+        <p>Osoite: {orderData.address}, {orderData.city}, {orderData.zip}, {orderData.country}</p>
+        <p>Maksutapa: {orderData.payment}</p>
+        {orderData.payment === "Luottokortti" && (
+          <p>Kortin omistaja: {orderData.cardHolder}</p>
+        )}
+
+        <h3>Ostoskorin sisältö:</h3>
+        {cartItems.map((item, index) => (
+          <p key={index}>{item.productName} - {item.price} EUR</p>
+        ))}
+        <h4>Yhteensä: {totalPrice.toFixed(2)} EUR</h4>
+      </div>
+    );
+  }
 
   //Tähän luodaan muuttuja joka hakee ostoskorin sisällön
 
   return (
     <div>
+      <Card>
+      <Card.Body>Ostoskorin sisältö: <Ostoskori/></Card.Body>
+    </Card>
       <Form onSubmit={handleSubmit}>
         <h1>Tilaustiedot</h1>
         <br></br>

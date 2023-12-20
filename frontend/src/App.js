@@ -18,7 +18,6 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/Fins" element={<Fins />}></Route>
         <Route path="/Cart" element={<Cart />}></Route>
-        <Route path="/Cart" element={<Cart />}></Route>
         <Route path="/Admin" element={<Admin />}></Route>
 
 
