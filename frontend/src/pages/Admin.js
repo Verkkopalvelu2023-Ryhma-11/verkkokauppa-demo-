@@ -17,7 +17,7 @@ export default function Admin() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('/api/categories', category);
+            await axios.post('http://localhost:3001/', category);
         } catch (error) {
             console.log(error.message);
         }

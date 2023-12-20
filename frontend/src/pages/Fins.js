@@ -79,16 +79,29 @@ export function CartProvider({ children }) {
     setCartItems((currentItems) => [...currentItems, product]);
   };
 
+  const removeFromCart = (productToRemove) => {
+    setCartItems((currentItems) =>
+      currentItems.filter((item) => item !== productToRemove)
+    );
+  };
+
   const value = {
     cartItems,
     addToCart,
+    removeFromCart,
+
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
 export function Ostoskori() {
-  const { cartItems } = useCart();
+  const { cartItems, removeFromCart } = useCart();
+
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + Number(item.price), 
+    0
+  );
 
   return (
     <div>
@@ -98,8 +111,13 @@ export function Ostoskori() {
           <span>{item.productName}</span>
           <span> - </span>
           <span>{item.price} EUR</span>
+          <button onClick={() => removeFromCart(item)}>Poista</button>
+
         </div>
       ))}
+    <h3>Yhteensä: {totalPrice.toFixed(2)} EUR</h3>
+
+
     </div>
   );
 }
