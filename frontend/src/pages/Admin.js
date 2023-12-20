@@ -4,7 +4,7 @@ import axios from 'axios'
 export default function Admin() {
 
     const params = {
-        name: '', description: '' ,
+        categoryName: '', description: '' ,
 
     }
 
@@ -17,7 +17,8 @@ export default function Admin() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('http://localhost:3001/', category);
+            await axios.post('http://localhost:3001/categories', category);
+            console.log('hienoa toimintaa');
         } catch (error) {
             console.log(error.message);
         }
@@ -33,7 +34,7 @@ export default function Admin() {
             <form onSubmit={handleSubmit}>
                 <label>
                     Nimi:
-                    <input type='text' name='name' value={category.name} onChange={handleChange} />
+                    <input type='text' name='categoryName' value={category.categoryName} onChange={handleChange} />
                 </label>
                 <label>
                     Kuvaus:
