@@ -20,7 +20,6 @@ header {
     min-height: 180px;
     background-color: rgb(240, 231, 219);
     margin-top: 0px;
-    border: solid rgb(155, 145, 131) 1px; /*tämä näkyvillä vain havainnollistamiseksi, poistetaan lopuksi*/
 } 
 
 article {
