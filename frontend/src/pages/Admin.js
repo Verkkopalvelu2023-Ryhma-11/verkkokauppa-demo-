@@ -16,9 +16,10 @@ export default function Admin() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        console.log('Lähetettävä kategoria:', category); 
         try {
-            await axios.post('http://localhost:3001/categories', category);
-            console.log('hienoa toimintaa');
+            await axios.post('http://localhost:3001/categories', category);    
+        console.log('TOIMIi');
         } catch (error) {
             console.log(error.message);
         }

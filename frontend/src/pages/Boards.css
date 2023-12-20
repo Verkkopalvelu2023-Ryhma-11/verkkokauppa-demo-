@@ -1,18 +1,16 @@
 #Boards {
-    font-family: Arial, sans-serif;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    width: 1000px;
-    text-align: center;
-   margin-left: auto;
-   margin-right: auto;
-  }
+  padding: 20px;
+  background-color: rgb(240, 231, 219);
+}
   
-  h3 {
-    text-align: left;
-    margin-bottom: 20px;
-    margin-left: 200px;
-  }
-  #Ostoskori{
-    margin-top: 50px;
-  }
+#Boards article {
+  margin: 20px 0;
+}
+
+
+#Boards h3 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
